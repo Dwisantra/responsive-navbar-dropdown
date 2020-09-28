@@ -1,0 +1,143 @@
+*{
+    padding: 0;
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+}
+
+body{
+    background: url(../images/_MG_0368.JPG);
+    background-attachment: fixed;
+    background-position: center;
+}
+
+header{
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 0 100px;
+    background: black;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+header .logo{
+    color: white;
+    height: 50px;
+    line-height: 50px;
+    font-size: 30px;
+    float: left;
+    font-weight: 700;
+}
+
+header nav{
+    float: right;
+}
+
+header nav ul{
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+header nav ul li{
+    position: relative;
+}
+
+header nav ul li.sub-menu::before{
+    content: '\f0dd';
+    font-family: fontAwesome;
+    position: absolute;
+    line-height: 50px;
+    color: white;
+    right: 5px;
+}
+
+header nav ul li.active.sub-menu::before{
+    content: '\f0de';
+}
+
+header nav ul li ul{
+    position: absolute;
+    left: 0;
+    background: black;
+    display: none;
+}
+
+header nav ul li.active ul{
+    display: block;
+}
+
+header nav ul li ul li{
+    display: block;
+    width: 200px;
+}
+
+header nav ul li a{
+    height: 50px;
+    line-height: 50px;
+    padding: 0 20px;
+    color: white;
+    display: block;
+}
+
+header nav ul li a:hover,
+header nav ul li a.active{
+    color: black;
+    background: tomato;
+}
+
+.menu-toggle{
+    color: white;
+    float: right;
+    line-height: 50px;
+    font-size: 24px;
+    cursor: pointer;
+    display: none;
+}
+
+/* tablet screen 991px*/
+@media only screen and (max-width: 991px){
+    header{
+        padding: 0 20px;
+    }
+
+    .menu-toggle{
+        display: block;
+    }
+
+    header nav{
+        /* display: none; */
+        position: absolute;
+        width: 100%;
+        height: calc(100vh - 50px);
+        background: black;
+        top: 50px;
+        left: -100%;
+        transition: .5s;
+    }
+    
+    header nav.active{
+        left: 0;
+    }
+
+    header nav ul{
+        display: block;
+        text-align: center;
+    }
+
+    header nav ul li a{
+        border-bottom: 1px solid rgba(0, 0, 0, .2);
+    }
+    
+    header nav ul li.active ul{
+        position: relative;
+        background:black;
+    }
+
+    header nav ul li ul li{
+        width: 100%;
+    }
+}
